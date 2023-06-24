@@ -1,54 +1,50 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VideoGameAppBackend.Models
 {
-      public enum GameGenre
-        {
-            Action,
-            Adventure,
-            RolePlaying,
-            Simulation,
-            Strategy,
-            Puzzle,
-            Sports,
-            Racing,
-            Fighting,
-            Shooter,
-            Stealth,
-            Survival,
-            BattleRoyale,
-            Music,
+    public enum GameGenre
+    {
+        Action,
+        Adventure,
+        RolePlaying,
+        Simulation,
+        Strategy,
+        Puzzle,
+        Sports,
+        Racing,
+        Fighting,
+        Shooter,
+        Stealth,
+        Survival,
+        BattleRoyale,
+        Music,
+        ThirdPersonShooter,
+        Horror,
+        Platform,
+        MOBA,
+        MMORPG,
+        Sandbox,
+        Roguelike,
+        OpenWorld,
+        VisualNovel
+    }
 
-            ThirdPersonShooter,
-            Horror,
-            Platform,
-            MOBA,   // Multiplayer Online Battle Arena
-            MMORPG, // Massively Multiplayer Online Role-Playing Game
-            Sandbox,
-
-            Roguelike,
-            OpenWorld,
-            VisualNovel
-        }
-
-        public enum GamePlatform
-        {
-            PC,
-            PlayStation5,
-            PlayStation4,
-            XboxOne,
-            XboxSeriesX,
-            Switch,
-            Mobile,
-            MacOS,
-            Linux,
-            VirtualReality
-        }
+    public enum GamePlatform
+    {
+        PC,
+        PlayStation5,
+        PlayStation4,
+        XboxOne,
+        XboxSeriesX,
+        Switch,
+        Mobile,
+        MacOS,
+        Linux,
+        VirtualReality
+    }
 
     public class Game
     {

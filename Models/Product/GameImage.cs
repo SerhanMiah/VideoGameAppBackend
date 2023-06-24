@@ -13,7 +13,7 @@ namespace VideoGameAppBackend.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(200)]
+        [StringLength(500)]
         public string? Url { get; set; }
 
         [ForeignKey("Game")]

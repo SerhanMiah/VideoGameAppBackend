@@ -11,7 +11,7 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20230624174140_InitialCreate")]
+    [Migration("20230624191602_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -50,7 +50,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2e65885a-dbd2-4968-84a9-ef8da610b698",
+                            Id = "fa0c994c-52c0-4014-a3da-4f50a7f27643",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -141,8 +141,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "0cd10475-0f3d-4995-9bad-c5e6591d804c",
-                            RoleId = "2e65885a-dbd2-4968-84a9-ef8da610b698"
+                            UserId = "e776bc3c-6217-48c4-83df-e323c5341d78",
+                            RoleId = "fa0c994c-52c0-4014-a3da-4f50a7f27643"
                         });
                 });
 
@@ -248,10 +248,10 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0cd10475-0f3d-4995-9bad-c5e6591d804c",
+                            Id = "e776bc3c-6217-48c4-83df-e323c5341d78",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "74fe0e30-1105-4440-9633-8e8e5b4f8523",
-                            DateOfBirth = new DateTime(1993, 6, 24, 17, 41, 40, 495, DateTimeKind.Utc).AddTicks(2250),
+                            ConcurrencyStamp = "510ed726-f11b-4dc6-b97d-d8de597457bb",
+                            DateOfBirth = new DateTime(1993, 6, 24, 19, 16, 2, 743, DateTimeKind.Utc).AddTicks(230),
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -259,19 +259,19 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDQ2u2/OEssNirnnRwTxiEnmTABIflQUPTeulRy0c0XVTwm6+qgNFBQlop2N9IeWJA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOITjZX0YQ5+3uZo62dKXeynnygHxM8N6rnl8bTi+dCDtPceAQl9dFFnJpyknYaJ7w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "990cc78e-7f60-46e8-baec-eb42404cd730",
+                            SecurityStamp = "8544ab58-6e44-477b-82e4-58b389c7df08",
                             ShippingAddress = "Admin's address",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "6ef492e7-6daf-47ae-b5d7-07a357206082",
+                            Id = "e0f606c4-152f-4b49-b670-c1960e76a898",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "937b0f85-7ab1-4475-82c5-88cd9cc9568c",
-                            DateOfBirth = new DateTime(1998, 6, 24, 17, 41, 40, 533, DateTimeKind.Utc).AddTicks(8320),
+                            ConcurrencyStamp = "51c34350-caab-4173-a427-b9a0a6a27e2f",
+                            DateOfBirth = new DateTime(1998, 6, 24, 19, 16, 2, 781, DateTimeKind.Utc).AddTicks(3830),
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -279,9 +279,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPzpKivbi7YV+KJYW8H9V3uJAZVJyRuxaVoK0XqXOB/sbHv4evEt01/YaA/u4I6ipw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPH+TRK0y0YmE7IQM/IDAwbtgswEFbPQ6WsvAC0lZq0ko3zZEtgFkAFP/FRYySh7Ww==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6979cc4b-e883-4025-a9f4-5e060c930d74",
+                            SecurityStamp = "c484b03d-d893-4429-af38-6dd347b31818",
                             ShippingAddress = "User's address",
                             TwoFactorEnabled = false,
                             UserName = "user"
@@ -675,8 +675,8 @@ namespace VideoGameBackend.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
 
                     b.HasKey("Id");
 
@@ -719,61 +719,61 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 6,
                             GameId = 2,
-                            Url = "https://example.com/minecraft/image1.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
                         },
                         new
                         {
                             Id = 7,
                             GameId = 2,
-                            Url = "https://example.com/minecraft/image2.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
                         },
                         new
                         {
                             Id = 8,
                             GameId = 2,
-                            Url = "https://example.com/minecraft/image3.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
                         },
                         new
                         {
                             Id = 9,
                             GameId = 2,
-                            Url = "https://example.com/minecraft/image4.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
                         },
                         new
                         {
                             Id = 10,
                             GameId = 2,
-                            Url = "https://example.com/minecraft/image5.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_Minecraft.jpg"
                         },
                         new
                         {
                             Id = 11,
                             GameId = 3,
-                            Url = "https://example.com/thewitcher3/image1.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_TheWitcher3WildHunt_enGB_image1600w.jpg"
                         },
                         new
                         {
                             Id = 12,
                             GameId = 3,
-                            Url = "https://example.com/thewitcher3/image2.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_TheWitcher3WildHunt_enGB_image1600w.jpg"
                         },
                         new
                         {
                             Id = 13,
                             GameId = 3,
-                            Url = "https://example.com/thewitcher3/image3.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_TheWitcher3WildHunt_enGB_image1600w.jpg"
                         },
                         new
                         {
                             Id = 14,
                             GameId = 3,
-                            Url = "https://example.com/thewitcher3/image4.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_TheWitcher3WildHunt_enGB_image1600w.jpg"
                         },
                         new
                         {
                             Id = 15,
                             GameId = 3,
-                            Url = "https://example.com/thewitcher3/image5.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_TheWitcher3WildHunt_enGB_image1600w.jpg"
                         },
                         new
                         {
@@ -809,691 +809,691 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 21,
                             GameId = 5,
-                            Url = "https://example.com/ratchetandclank/image1.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547912/VideoGameShop/Ratchet-Clank-Rift%20Apart/RC_RiftApart_Heroes_PS5-scaled_u56nzf.jpg"
                         },
                         new
                         {
                             Id = 22,
                             GameId = 5,
-                            Url = "https://example.com/ratchetandclank/image2.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Ratchet-Clank-Rift%20Apart/RC_RiftApart_Who_PS5-scaled_zabzju.jpg"
                         },
                         new
                         {
                             Id = 23,
                             GameId = 5,
-                            Url = "https://example.com/ratchetandclank/image3.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/Ratchet-Clank-Rift%20Apart/DwVjpbKOsFOyPdNzmSTSWuxG_obxxbq.webp"
                         },
                         new
                         {
                             Id = 24,
                             GameId = 5,
-                            Url = "https://example.com/ratchetandclank/image4.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/Ratchet-Clank-Rift%20Apart/Ratchet-and-Clank-Rift-Apart-PS4-fc20022_rd0biw.jpg"
                         },
                         new
                         {
                             Id = 25,
                             GameId = 5,
-                            Url = "https://example.com/ratchetandclank/image5.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547904/VideoGameShop/Ratchet-Clank-Rift%20Apart/716cb9b0c815dd9a4ff2b198a5ba13a4d58dfa01-scaled_zhguda.webp"
                         },
                         new
                         {
                             Id = 26,
                             GameId = 6,
-                            Url = "https://example.com/returnal/image1.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547910/VideoGameShop/Returnal/81jyDN6P9vL_p3u8ms.jpg"
                         },
                         new
                         {
                             Id = 27,
                             GameId = 6,
-                            Url = "https://example.com/returnal/image2.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Returnal/jACA12Z58ka5V6vvxlcdoQfJ_sykmv1.avif"
                         },
                         new
                         {
                             Id = 28,
                             GameId = 6,
-                            Url = "https://example.com/returnal/image3.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547909/VideoGameShop/Returnal/4ItSbqJE88H019Ua3WBQKLF8_mfw76m.avif"
                         },
                         new
                         {
                             Id = 29,
                             GameId = 6,
-                            Url = "https://example.com/returnal/image4.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547906/VideoGameShop/Returnal/returnalsurvive_wiqjhb.jpg"
                         },
                         new
                         {
                             Id = 30,
                             GameId = 6,
-                            Url = "https://example.com/returnal/image5.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687547905/VideoGameShop/Returnal/h3returnalh3brbdelayed-from-march-19-to-april-30-2021bbrbrre_8g1s.1280_n4y5sg.webp"
                         },
                         new
                         {
                             Id = 31,
                             GameId = 7,
-                            Url = "https://example.com/lastofus2/image1.jpg"
+                            Url = "https://assets1.ignimgs.com/2020/05/19/lastofuspart2-blogroll-1589913932452_160w.jpg?width=1280"
                         },
                         new
                         {
                             Id = 32,
                             GameId = 7,
-                            Url = "https://example.com/lastofus2/image2.jpg"
+                            Url = "https://assets1.ignimgs.com/2020/05/19/lastofuspart2-blogroll-1589913932452_160w.jpg?width=1280"
                         },
                         new
                         {
                             Id = 33,
                             GameId = 7,
-                            Url = "https://example.com/lastofus2/image3.jpg"
+                            Url = "https://assets1.ignimgs.com/2020/05/19/lastofuspart2-blogroll-1589913932452_160w.jpg?width=1280"
                         },
                         new
                         {
                             Id = 34,
                             GameId = 7,
-                            Url = "https://example.com/lastofus2/image4.jpg"
+                            Url = "https://assets1.ignimgs.com/2020/05/19/lastofuspart2-blogroll-1589913932452_160w.jpg?width=1280"
                         },
                         new
                         {
                             Id = 35,
                             GameId = 7,
-                            Url = "https://example.com/lastofus2/image5.jpg"
+                            Url = "https://assets1.ignimgs.com/2020/05/19/lastofuspart2-blogroll-1589913932452_160w.jpg?width=1280"
                         },
                         new
                         {
                             Id = 36,
                             GameId = 8,
-                            Url = "https://example.com/godofwar/image1.jpg"
+                            Url = "https://m.media-amazon.com/images/I/A1b0TAVpyEL._AC_UF894,1000_QL80_.jpg"
                         },
                         new
                         {
                             Id = 37,
                             GameId = 8,
-                            Url = "https://example.com/godofwar/image2.jpg"
+                            Url = "https://m.media-amazon.com/images/I/A1b0TAVpyEL._AC_UF894,1000_QL80_.jpg"
                         },
                         new
                         {
                             Id = 38,
                             GameId = 8,
-                            Url = "https://example.com/godofwar/image3.jpg"
+                            Url = "https://m.media-amazon.com/images/I/A1b0TAVpyEL._AC_UF894,1000_QL80_.jpg"
                         },
                         new
                         {
                             Id = 39,
                             GameId = 8,
-                            Url = "https://example.com/godofwar/image4.jpg"
+                            Url = "https://m.media-amazon.com/images/I/A1b0TAVpyEL._AC_UF894,1000_QL80_.jpg"
                         },
                         new
                         {
                             Id = 40,
                             GameId = 8,
-                            Url = "https://example.com/godofwar/image5.jpg"
+                            Url = "https://m.media-amazon.com/images/I/A1b0TAVpyEL._AC_UF894,1000_QL80_.jpg"
                         },
                         new
                         {
                             Id = 41,
                             GameId = 9,
-                            Url = "https://example.com/uncharted4/image1.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/img/rnd/202010/2620/eIO6Ka26JChNo8KaFi7wON4L.jpg"
                         },
                         new
                         {
                             Id = 42,
                             GameId = 9,
-                            Url = "https://example.com/uncharted4/image2.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/img/rnd/202010/2620/eIO6Ka26JChNo8KaFi7wON4L.jpg"
                         },
                         new
                         {
                             Id = 43,
                             GameId = 9,
-                            Url = "https://example.com/uncharted4/image3.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/img/rnd/202010/2620/eIO6Ka26JChNo8KaFi7wON4L.jpg"
                         },
                         new
                         {
                             Id = 44,
                             GameId = 9,
-                            Url = "https://example.com/uncharted4/image4.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/img/rnd/202010/2620/eIO6Ka26JChNo8KaFi7wON4L.jpg"
                         },
                         new
                         {
                             Id = 45,
                             GameId = 9,
-                            Url = "https://example.com/uncharted4/image5.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/img/rnd/202010/2620/eIO6Ka26JChNo8KaFi7wON4L.jpg"
                         },
                         new
                         {
                             Id = 46,
                             GameId = 10,
-                            Url = "https://example.com/forzahorizon4/image1.jpg"
+                            Url = "https://assets.xboxservices.com/assets/1d/8f/1d8f5d61-2a8c-4377-a512-88b060deeaf4.jpg?n=FH4_GLP-Page-Hero-1084_1920x1080_02.jpg"
                         },
                         new
                         {
                             Id = 47,
                             GameId = 10,
-                            Url = "https://example.com/forzahorizon4/image2.jpg"
+                            Url = "https://assets.xboxservices.com/assets/1d/8f/1d8f5d61-2a8c-4377-a512-88b060deeaf4.jpg?n=FH4_GLP-Page-Hero-1084_1920x1080_02.jpg"
                         },
                         new
                         {
                             Id = 48,
                             GameId = 10,
-                            Url = "https://example.com/forzahorizon4/image3.jpg"
+                            Url = "https://assets.xboxservices.com/assets/1d/8f/1d8f5d61-2a8c-4377-a512-88b060deeaf4.jpg?n=FH4_GLP-Page-Hero-1084_1920x1080_02.jpg"
                         },
                         new
                         {
                             Id = 49,
                             GameId = 10,
-                            Url = "https://example.com/forzahorizon4/image4.jpg"
+                            Url = "https://assets.xboxservices.com/assets/1d/8f/1d8f5d61-2a8c-4377-a512-88b060deeaf4.jpg?n=FH4_GLP-Page-Hero-1084_1920x1080_02.jpg"
                         },
                         new
                         {
                             Id = 50,
                             GameId = 10,
-                            Url = "https://example.com/forzahorizon4/image5.jpg"
+                            Url = "https://assets.xboxservices.com/assets/1d/8f/1d8f5d61-2a8c-4377-a512-88b060deeaf4.jpg?n=FH4_GLP-Page-Hero-1084_1920x1080_02.jpg"
                         },
                         new
                         {
                             Id = 51,
                             GameId = 11,
-                            Url = "https://example.com/halo5/image1.jpg"
+                            Url = "https://gaming-cdn.com/images/products/9598/orig/halo-5-guardians-pc-game-steam-cover.jpg?v=1668692780"
                         },
                         new
                         {
                             Id = 52,
                             GameId = 11,
-                            Url = "https://example.com/halo5/image2.jpg"
+                            Url = "https://gaming-cdn.com/images/products/9598/orig/halo-5-guardians-pc-game-steam-cover.jpg?v=1668692780"
                         },
                         new
                         {
                             Id = 53,
                             GameId = 11,
-                            Url = "https://example.com/halo5/image3.jpg"
+                            Url = "https://gaming-cdn.com/images/products/9598/orig/halo-5-guardians-pc-game-steam-cover.jpg?v=1668692780"
                         },
                         new
                         {
                             Id = 54,
                             GameId = 11,
-                            Url = "https://example.com/halo5/image4.jpg"
+                            Url = "https://gaming-cdn.com/images/products/9598/orig/halo-5-guardians-pc-game-steam-cover.jpg?v=1668692780"
                         },
                         new
                         {
                             Id = 55,
                             GameId = 11,
-                            Url = "https://example.com/halo5/image5.jpg"
+                            Url = "https://gaming-cdn.com/images/products/9598/orig/halo-5-guardians-pc-game-steam-cover.jpg?v=1668692780"
                         },
                         new
                         {
                             Id = 56,
                             GameId = 12,
-                            Url = "https://example.com/gearsofwar4/image1.jpg"
+                            Url = "https://assets.xboxservices.com/assets/2b/42/2b42b33c-cc7f-4162-9eaa-48e5cc88e6fe.jpg?n=GoW4-MWF_Hero-0_1083x609.jpg"
                         },
                         new
                         {
                             Id = 57,
                             GameId = 12,
-                            Url = "https://example.com/gearsofwar4/image2.jpg"
+                            Url = "https://assets.xboxservices.com/assets/2b/42/2b42b33c-cc7f-4162-9eaa-48e5cc88e6fe.jpg?n=GoW4-MWF_Hero-0_1083x609.jpg"
                         },
                         new
                         {
                             Id = 58,
                             GameId = 12,
-                            Url = "https://example.com/gearsofwar4/image3.jpg"
+                            Url = "https://assets.xboxservices.com/assets/2b/42/2b42b33c-cc7f-4162-9eaa-48e5cc88e6fe.jpg?n=GoW4-MWF_Hero-0_1083x609.jpg"
                         },
                         new
                         {
                             Id = 59,
                             GameId = 12,
-                            Url = "https://example.com/gearsofwar4/image4.jpg"
+                            Url = "https://assets.xboxservices.com/assets/2b/42/2b42b33c-cc7f-4162-9eaa-48e5cc88e6fe.jpg?n=GoW4-MWF_Hero-0_1083x609.jpg"
                         },
                         new
                         {
                             Id = 60,
                             GameId = 12,
-                            Url = "https://example.com/gearsofwar4/image5.jpg"
+                            Url = "https://assets.xboxservices.com/assets/2b/42/2b42b33c-cc7f-4162-9eaa-48e5cc88e6fe.jpg?n=GoW4-MWF_Hero-0_1083x609.jpg"
                         },
                         new
                         {
                             Id = 61,
                             GameId = 13,
-                            Url = "https://example.com/assassinscreedvalhalla/image1.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
                         },
                         new
                         {
                             Id = 62,
                             GameId = 13,
-                            Url = "https://example.com/assassinscreedvalhalla/image2.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
                         },
                         new
                         {
                             Id = 63,
                             GameId = 13,
-                            Url = "https://example.com/assassinscreedvalhalla/image3.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
                         },
                         new
                         {
                             Id = 64,
                             GameId = 13,
-                            Url = "https://example.com/assassinscreedvalhalla/image4.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
                         },
                         new
                         {
                             Id = 65,
                             GameId = 13,
-                            Url = "https://example.com/assassinscreedvalhalla/image5.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
                         },
                         new
                         {
                             Id = 66,
                             GameId = 14,
-                            Url = "https://example.com/deathstranding/image1.jpg"
+                            Url = "https://m.media-amazon.com/images/M/MV5BMjIxZTljZGItZTIwYS00ZjIzLWJlZTMtZWIyODg0NjA0NTNmXkEyXkFqcGdeQXVyMTI0MzA4NTgw._V1_.jpg"
                         },
                         new
                         {
                             Id = 67,
                             GameId = 14,
-                            Url = "https://example.com/deathstranding/image2.jpg"
+                            Url = "https://m.media-amazon.com/images/M/MV5BMjIxZTljZGItZTIwYS00ZjIzLWJlZTMtZWIyODg0NjA0NTNmXkEyXkFqcGdeQXVyMTI0MzA4NTgw._V1_.jpg"
                         },
                         new
                         {
                             Id = 68,
                             GameId = 14,
-                            Url = "https://example.com/deathstranding/image3.jpg"
+                            Url = "https://m.media-amazon.com/images/M/MV5BMjIxZTljZGItZTIwYS00ZjIzLWJlZTMtZWIyODg0NjA0NTNmXkEyXkFqcGdeQXVyMTI0MzA4NTgw._V1_.jpg"
                         },
                         new
                         {
                             Id = 69,
                             GameId = 14,
-                            Url = "https://example.com/deathstranding/image4.jpg"
+                            Url = "https://m.media-amazon.com/images/M/MV5BMjIxZTljZGItZTIwYS00ZjIzLWJlZTMtZWIyODg0NjA0NTNmXkEyXkFqcGdeQXVyMTI0MzA4NTgw._V1_.jpg"
                         },
                         new
                         {
                             Id = 70,
                             GameId = 14,
-                            Url = "https://example.com/deathstranding/image5.jpg"
+                            Url = "https://m.media-amazon.com/images/M/MV5BMjIxZTljZGItZTIwYS00ZjIzLWJlZTMtZWIyODg0NjA0NTNmXkEyXkFqcGdeQXVyMTI0MzA4NTgw._V1_.jpg"
                         },
                         new
                         {
                             Id = 71,
                             GameId = 15,
-                            Url = "https://example.com/grandtheftautoV/image1.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
                         },
                         new
                         {
                             Id = 72,
                             GameId = 15,
-                            Url = "https://example.com/grandtheftautoV/image2.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
                         },
                         new
                         {
                             Id = 73,
                             GameId = 15,
-                            Url = "https://example.com/grandtheftautoV/image3.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
                         },
                         new
                         {
                             Id = 74,
                             GameId = 15,
-                            Url = "https://example.com/grandtheftautoV/image4.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
                         },
                         new
                         {
                             Id = 75,
                             GameId = 15,
-                            Url = "https://example.com/grandtheftautoV/image5.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202202/2811/x9SuHZAiRn0uJXB1IKteIgcw.png"
                         },
                         new
                         {
                             Id = 76,
                             GameId = 16,
-                            Url = "https://example.com/spidermanmilesmorales/image1.jpg"
+                            Url = "https://gaming-cdn.com/images/products/12953/orig/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg?v=1683639469"
                         },
                         new
                         {
                             Id = 77,
                             GameId = 16,
-                            Url = "https://example.com/spidermanmilesmorales/image2.jpg"
+                            Url = "https://gaming-cdn.com/images/products/12953/orig/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg?v=1683639469"
                         },
                         new
                         {
                             Id = 78,
                             GameId = 16,
-                            Url = "https://example.com/spidermanmilesmorales/image3.jpg"
+                            Url = "https://gaming-cdn.com/images/products/12953/orig/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg?v=1683639469"
                         },
                         new
                         {
                             Id = 79,
                             GameId = 16,
-                            Url = "https://example.com/spidermanmilesmorales/image4.jpg"
+                            Url = "https://gaming-cdn.com/images/products/12953/orig/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg?v=1683639469"
                         },
                         new
                         {
                             Id = 80,
                             GameId = 16,
-                            Url = "https://example.com/spidermanmilesmorales/image5.jpg"
+                            Url = "https://gaming-cdn.com/images/products/12953/orig/marvel-s-spider-man-miles-morales-pc-game-steam-cover.jpg?v=1683639469"
                         },
                         new
                         {
                             Id = 81,
                             GameId = 17,
-                            Url = "https://example.com/residentevilvillage/image1.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/Resident-Evil-Village-Gold-Edition.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 82,
                             GameId = 17,
-                            Url = "https://example.com/residentevilvillage/image2.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/Resident-Evil-Village-Gold-Edition.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 83,
                             GameId = 17,
-                            Url = "https://example.com/residentevilvillage/image3.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/Resident-Evil-Village-Gold-Edition.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 84,
                             GameId = 17,
-                            Url = "https://example.com/residentevilvillage/image4.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/Resident-Evil-Village-Gold-Edition.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 85,
                             GameId = 17,
-                            Url = "https://example.com/residentevilvillage/image5.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/Resident-Evil-Village-Gold-Edition.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 86,
                             GameId = 18,
-                            Url = "https://example.com/demonslayerhinokamichronicles/image1.jpg"
+                            Url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5HQma8l42yiEEs8TntdfI_YxYjwcHpFvARIVtxqqukFwKsIlnk_f7uqt3Fv_UniTPENV0YSB6lSiIlAubWNOBjbpVXXcjx-faWPurBEw3crAGkIQdTj8yzKCACHq6sCeRPkYtXESpLjUcDu5_VY3W8z6LfCJSpt8IVfRipQ6QMH92cj4ea4mBLTXP/s1280/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-Switch-physical-release.jpg"
                         },
                         new
                         {
                             Id = 87,
                             GameId = 18,
-                            Url = "https://example.com/demonslayerhinokamichronicles/image2.jpg"
+                            Url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5HQma8l42yiEEs8TntdfI_YxYjwcHpFvARIVtxqqukFwKsIlnk_f7uqt3Fv_UniTPENV0YSB6lSiIlAubWNOBjbpVXXcjx-faWPurBEw3crAGkIQdTj8yzKCACHq6sCeRPkYtXESpLjUcDu5_VY3W8z6LfCJSpt8IVfRipQ6QMH92cj4ea4mBLTXP/s1280/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-Switch-physical-release.jpg"
                         },
                         new
                         {
                             Id = 88,
                             GameId = 18,
-                            Url = "https://example.com/demonslayerhinokamichronicles/image3.jpg"
+                            Url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5HQma8l42yiEEs8TntdfI_YxYjwcHpFvARIVtxqqukFwKsIlnk_f7uqt3Fv_UniTPENV0YSB6lSiIlAubWNOBjbpVXXcjx-faWPurBEw3crAGkIQdTj8yzKCACHq6sCeRPkYtXESpLjUcDu5_VY3W8z6LfCJSpt8IVfRipQ6QMH92cj4ea4mBLTXP/s1280/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-Switch-physical-release.jpg"
                         },
                         new
                         {
                             Id = 89,
                             GameId = 18,
-                            Url = "https://example.com/demonslayerhinokamichronicles/image4.jpg"
+                            Url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5HQma8l42yiEEs8TntdfI_YxYjwcHpFvARIVtxqqukFwKsIlnk_f7uqt3Fv_UniTPENV0YSB6lSiIlAubWNOBjbpVXXcjx-faWPurBEw3crAGkIQdTj8yzKCACHq6sCeRPkYtXESpLjUcDu5_VY3W8z6LfCJSpt8IVfRipQ6QMH92cj4ea4mBLTXP/s1280/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-Switch-physical-release.jpg"
                         },
                         new
                         {
                             Id = 90,
                             GameId = 18,
-                            Url = "https://example.com/demonslayerhinokamichronicles/image5.jpg"
+                            Url = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5HQma8l42yiEEs8TntdfI_YxYjwcHpFvARIVtxqqukFwKsIlnk_f7uqt3Fv_UniTPENV0YSB6lSiIlAubWNOBjbpVXXcjx-faWPurBEw3crAGkIQdTj8yzKCACHq6sCeRPkYtXESpLjUcDu5_VY3W8z6LfCJSpt8IVfRipQ6QMH92cj4ea4mBLTXP/s1280/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-Switch-physical-release.jpg"
                         },
                         new
                         {
                             Id = 91,
                             GameId = 19,
-                            Url = "https://example.com/horizonforbiddenwest/image1.jpg"
+                            Url = "https://library.sportingnews.com/styles/facebook_1200x630/s3/2021-10/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg?itok=B0Ysb2Rj"
                         },
                         new
                         {
                             Id = 92,
                             GameId = 19,
-                            Url = "https://example.com/horizonforbiddenwest/image2.jpg"
+                            Url = "https://library.sportingnews.com/styles/facebook_1200x630/s3/2021-10/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg?itok=B0Ysb2Rj"
                         },
                         new
                         {
                             Id = 93,
                             GameId = 19,
-                            Url = "https://example.com/horizonforbiddenwest/image3.jpg"
+                            Url = "https://library.sportingnews.com/styles/facebook_1200x630/s3/2021-10/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg?itok=B0Ysb2Rj"
                         },
                         new
                         {
                             Id = 94,
                             GameId = 19,
-                            Url = "https://example.com/horizonforbiddenwest/image4.jpg"
+                            Url = "https://library.sportingnews.com/styles/facebook_1200x630/s3/2021-10/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg?itok=B0Ysb2Rj"
                         },
                         new
                         {
                             Id = 95,
                             GameId = 19,
-                            Url = "https://example.com/horizonforbiddenwest/image5.jpg"
+                            Url = "https://library.sportingnews.com/styles/facebook_1200x630/s3/2021-10/ea-fifa-22-cover-kylian-mbappe_1qeaco87s803l13iu0tnr84jhq.jpg?itok=B0Ysb2Rj"
                         },
                         new
                         {
                             Id = 96,
                             GameId = 20,
-                            Url = "https://example.com/horizonforbiddenwest/image1.jpg"
+                            Url = "https://cdn.vox-cdn.com/thumbor/P5qcFEfltn2W-VVjvjHdGtBjGN4=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22138421/jbareham_201201_ecl1050_goty_2020_top_10__1_HADES.jpg"
                         },
                         new
                         {
                             Id = 97,
                             GameId = 20,
-                            Url = "https://example.com/horizonforbiddenwest/image2.jpg"
+                            Url = "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2020/01/hadesgoonheader.png"
                         },
                         new
                         {
                             Id = 98,
                             GameId = 20,
-                            Url = "https://example.com/horizonforbiddenwest/image3.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hades_image1600w.png"
                         },
                         new
                         {
                             Id = 99,
                             GameId = 20,
-                            Url = "https://example.com/horizonforbiddenwest/image4.jpg"
+                            Url = "https://preview.redd.it/8uwps0hac4s81.jpg?auto=webp&s=eb79577f9e3cbb2e38f0b386c5ad81882397f151"
                         },
                         new
                         {
                             Id = 100,
                             GameId = 20,
-                            Url = "https://example.com/horizonforbiddenwest/image5.jpg"
+                            Url = "https://assets.rockpapershotgun.com/images/2019/01/hades-e.jpg"
                         },
                         new
                         {
                             Id = 101,
                             GameId = 21,
-                            Url = "https://example.com/horizonforbiddenwest/image1.jpg"
+                            Url = "https://upload.wikimedia.org/wikipedia/en/2/23/Psychonauts_2_cover.png"
                         },
                         new
                         {
                             Id = 102,
                             GameId = 21,
-                            Url = "https://example.com/horizonforbiddenwest/image2.jpg"
+                            Url = "https://i.guim.co.uk/img/media/4aa09e45bb80928fc52442e3072edeba6e1001b5/144_0_3600_2160/master/3600.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=2fc06be6382ce01bea378e17a9642dfa"
                         },
                         new
                         {
                             Id = 103,
                             GameId = 21,
-                            Url = "https://example.com/horizonforbiddenwest/image3.jpg"
+                            Url = "https://assets.xboxservices.com/assets/94/e6/94e658f8-20d5-4419-988c-7603eb297a42.jpg?n=Psychonauts-2_GLP-Page-Hero-1084_Cinemagraph-Poster-Image_1920x1080.jpg"
                         },
                         new
                         {
                             Id = 104,
                             GameId = 21,
-                            Url = "https://example.com/horizonforbiddenwest/image4.jpg"
+                            Url = "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2022/12/raz-milla-and-lucrecia-from-psychonauts-2.jpg"
                         },
                         new
                         {
                             Id = 105,
                             GameId = 21,
-                            Url = "https://example.com/horizonforbiddenwest/image5.jpg"
+                            Url = "https://www.gameinformer.com/sites/default/files/styles/thumbnail/public/2021/06/13/3a37e59e/psychonauts2_01.jpg"
                         },
                         new
                         {
                             Id = 106,
                             GameId = 22,
-                            Url = "https://example.com/skyrim/image1.jpg"
+                            Url = "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheElderScrollsVSkyrim_image1600w.jpg"
                         },
                         new
                         {
                             Id = 107,
                             GameId = 22,
-                            Url = "https://example.com/skyrim/image2.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202110/2019/aDSOgerXg4V6sf5A7VzHiTun.jpg"
                         },
                         new
                         {
                             Id = 108,
                             GameId = 22,
-                            Url = "https://example.com/skyrim/image3.jpg"
+                            Url = "https://i.ebayimg.com/images/g/Ag0AAOSwhBxjP~Z5/s-l960.jpg"
                         },
                         new
                         {
                             Id = 109,
                             GameId = 22,
-                            Url = "https://example.com/skyrim/image4.jpg"
+                            Url = "https://i.gadgets360cdn.com/large/skyrim_remaster_1477475720488.jpeg"
                         },
                         new
                         {
                             Id = 110,
                             GameId = 22,
-                            Url = "https://example.com/skyrim/image5.jpg"
+                            Url = "https://media.wired.com/photos/5a8f7d06b4bf6c3e4d4058c0/master/w_1600%2Cc_limit/skyrim-0004.jpg"
                         },
                         new
                         {
                             Id = 111,
                             GameId = 23,
-                            Url = "https://example.com/worldofwarcraft/image1.jpg"
+                            Url = "https://static.wikia.nocookie.net/wowpedia/images/a/aa/WoW_2.0_logo_old.png/revision/latest?cb=20180705205814"
                         },
                         new
                         {
                             Id = 112,
                             GameId = 23,
-                            Url = "https://example.com/worldofwarcraft/image2.jpg"
+                            Url = "https://media.wired.com/photos/5eb064fb568b219656eb598a/master/w_2560%2Cc_limit/Culture_Ardenweald_1920x1080.jpg"
                         },
                         new
                         {
                             Id = 113,
                             GameId = 23,
-                            Url = "https://example.com/worldofwarcraft/image3.jpg"
+                            Url = "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/bltd6a3e4b53209d445/63ec05bc9fcac365e25253a0/WoW_Free_Trial_BG.png?width=&format=webply&dpr=2&disable=upscale&quality=80"
                         },
                         new
                         {
                             Id = 114,
                             GameId = 23,
-                            Url = "https://example.com/worldofwarcraft/image4.jpg"
+                            Url = "https://images.cgames.de/images/gamestar/4/wow-dragonflight-teaser_6177226.jpg"
                         },
                         new
                         {
                             Id = 115,
                             GameId = 23,
-                            Url = "https://example.com/worldofwarcraft/image5.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/World-Of-Warcraft-Wrath-Of-The-Lich-King.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
                         },
                         new
                         {
                             Id = 116,
                             GameId = 24,
-                            Url = "https://example.com/fallout4/image1.jpg"
+                            Url = "https://image.api.playstation.com/vulcan/ap/rnd/202009/2500/4GZyUQ1bHTjICP6GCRG7f65n.png"
                         },
                         new
                         {
                             Id = 117,
                             GameId = 24,
-                            Url = "https://example.com/fallout4/image2.jpg"
+                            Url = "https://cdn.vox-cdn.com/thumbor/Fy1WKM1aEXO4VT6_WvIGQNtMC68=/155x0:1842x1125/1280x854/cdn.vox-cdn.com/uploads/chorus_image/image/47619447/Fallout4_Trailer_End_1433355589.0.0.jpg"
                         },
                         new
                         {
                             Id = 118,
                             GameId = 24,
-                            Url = "https://example.com/fallout4/image3.jpg"
+                            Url = "https://www.trustedreviews.com/wp-content/uploads/sites/54/2015/11/Fallout-4-1-2.jpg"
                         },
                         new
                         {
                             Id = 119,
                             GameId = 24,
-                            Url = "https://example.com/fallout4/image4.jpg"
+                            Url = "https://images.ladbible.com/resize?type=jpeg&quality=70&width=720&fit=contain&gravity=null&url=https://eu-images.contentstack.com/v3/assets/bltbc1876152fcd9f07/blt4803eee048f0ddc1/647e01820f2fc184b19c8db1/fallout_4_fan_remake.png"
                         },
                         new
                         {
                             Id = 120,
                             GameId = 24,
-                            Url = "https://example.com/fallout4/image5.jpg"
+                            Url = "https://assetsio.reedpopcdn.com/1.bmp_jQm0xJ3.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp"
                         },
                         new
                         {
                             Id = 121,
                             GameId = 25,
-                            Url = "https://example.com/horizonforbiddenwest/image1.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633010/VideoGameShop/Horizon%20Forbidden%20West/horizon-forbidden-west-alpha-leak-scaled-e1672388177340_kmjzqr.jpg"
                         },
                         new
                         {
                             Id = 122,
                             GameId = 25,
-                            Url = "https://example.com/horizonforbiddenwest/image2.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/Games-Horizon-Forbidden-West-Review-top_q8ujyy.webp"
                         },
                         new
                         {
                             Id = 123,
                             GameId = 25,
-                            Url = "https://example.com/horizonforbiddenwest/image3.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/HO8vkO9pfXhwbHi5WHECQJdN_orvh7x.webp"
                         },
                         new
                         {
                             Id = 124,
                             GameId = 25,
-                            Url = "https://example.com/horizonforbiddenwest/image4.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/UwYhuHgLaRtpq9eXUBuwaM_mb1ns8.jpg"
                         },
                         new
                         {
                             Id = 125,
                             GameId = 25,
-                            Url = "https://example.com/horizonforbiddenwest/image5.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687633009/VideoGameShop/Horizon%20Forbidden%20West/resize_fomk2i.jpg"
                         },
                         new
                         {
                             Id = 126,
                             GameId = 26,
-                            Url = "https://example.com/callofdutywarzone/image1.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632890/VideoGameShop/Call%20of%20Duty-%20Warzone/WZM-LIMITEDRELEASE-1128-TOUT_h3qti8.jpg"
                         },
                         new
                         {
                             Id = 127,
                             GameId = 26,
-                            Url = "https://example.com/callofdutywarzone/image2.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632890/VideoGameShop/Call%20of%20Duty-%20Warzone/Warzone_glsmxq.png"
                         },
                         new
                         {
                             Id = 128,
                             GameId = 26,
-                            Url = "https://example.com/callofdutywarzone/image3.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632889/VideoGameShop/Call%20of%20Duty-%20Warzone/warzone-s2-meta-a86a_l6ctn7.webp"
                         },
                         new
                         {
                             Id = 129,
                             GameId = 26,
-                            Url = "https://example.com/callofdutywarzone/image4.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632889/VideoGameShop/Call%20of%20Duty-%20Warzone/ss_3c2893dd47a7e62b98e04e4a62f28e2f28d17ba5.1920x1080_m2op1k.jpg"
                         },
                         new
                         {
                             Id = 130,
                             GameId = 26,
-                            Url = "https://example.com/callofdutywarzone/image5.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632888/VideoGameShop/Call%20of%20Duty-%20Warzone/MWII-NEXT-COD-WZM-TOUT_bws5ta.jpg"
                         },
                         new
                         {
                             Id = 131,
                             GameId = 27,
-                            Url = "https://example.com/fortnite/image1.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632765/VideoGameShop/Fortnite/2x1_NSwitchDS_Fortnite_w2tovi.jpg"
                         },
                         new
                         {
                             Id = 132,
                             GameId = 27,
-                            Url = "https://example.com/fortnite/image2.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632764/VideoGameShop/Fortnite/fortnite-home-page-zero-build-promo-slide-desktop-1920x1080-4272f6b5e69e_y8rwth.jpg"
                         },
                         new
                         {
                             Id = 133,
                             GameId = 27,
-                            Url = "https://example.com/fortnite/image3.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632764/VideoGameShop/Fortnite/1200_tgvg5u.webp"
                         },
                         new
                         {
                             Id = 134,
                             GameId = 27,
-                            Url = "https://example.com/fortnite/image4.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632764/VideoGameShop/Fortnite/1080_fjmkvp.webp"
                         },
                         new
                         {
                             Id = 135,
                             GameId = 27,
-                            Url = "https://example.com/fortnite/image5.jpg"
+                            Url = "https://res.cloudinary.com/danedskby/image/upload/v1687632764/VideoGameShop/Fortnite/1207_rdyajp.webp"
                         });
                 });
 

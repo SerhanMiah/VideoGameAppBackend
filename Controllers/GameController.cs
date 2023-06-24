@@ -37,8 +37,10 @@ namespace VideoGameAppBackend.Controllers
         [HttpGet("{id}")]
         public ActionResult<Game> GetGame(int id)
         {
-            var game = _dbContext.Games.FirstOrDefault(g => g.Id == id);
-            
+            var game = _dbContext.Games
+                .Include(g => g.GameImages)
+                .FirstOrDefault(g => g.Id == id);
+
             if (game == null)
             {
                 return NotFound();
@@ -46,6 +48,7 @@ namespace VideoGameAppBackend.Controllers
 
             return game;
         }
-        
+
+
     }
 }
