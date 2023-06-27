@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using VideoGameAppBackend.Data.SeedData;
 using VideoGameAppBackend.Models;
 using VideoGameAppBackend.Models.Payments;
+using VideoGameAppBackend.Models.Product;
+using System.Collections.Generic;
 
 namespace VideoGameAppBackend.Data
 {
@@ -29,15 +27,81 @@ namespace VideoGameAppBackend.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<DLC> DLCs { get; set; }
+
+        public DbSet<DLCImage> DLCImages { get; set; }
+        public DbSet<GameGenre> GameGenres { get; set; }
+        public DbSet<GamePlatform> GamePlatforms { get; set; }
+        public DbSet<AgeRating> AgeRatings { get; set; }
+        public DbSet<Language> Languages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            var users = UserSeedData.Seed(builder, _passwordHasher);
+            var users = UserSeedData.Seed(builder, _passwordHasher) as List<ApplicationUser>; // Explicitly cast to List<ApplicationUser>
             RoleSeedData.Seed(builder, users);
             GameSeedData.Seed(builder);
             GameImageSeedData.Seed(builder);
-        }
+
+            // Set seeding order: Games first, then GameImages
+            builder.Entity<Game>()
+                .HasMany(g => g.DLCs)
+                .WithOne(d => d.Game)
+                .HasForeignKey(d => d.GameId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Set the relationships for the Game, GameGenre, and GamePlatform entities
+            builder.Entity<GameGenre>()
+                .HasKey(gg => new { gg.GameId, gg.GenreId });
+
+            builder.Entity<GameGenre>()
+                .HasOne(gg => gg.Game)
+                .WithMany(g => g.GameGenres)
+                .HasForeignKey(gg => gg.GameId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<GameGenre>()
+                .HasOne(gg => gg.Genre)
+                .WithMany(g => g.GameGenres)
+                .HasForeignKey(gg => gg.GenreId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<GamePlatform>()
+                .HasKey(gp => new { gp.GameId, gp.PlatformId });
+
+            builder.Entity<GamePlatform>()
+                .HasOne(gp => gp.Game)
+                .WithMany(g => g.GamePlatforms)
+                .HasForeignKey(gp => gp.GameId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<GamePlatform>()
+                .HasOne(gp => gp.Platform)
+                .WithMany(p => p.GamePlatforms)
+                .HasForeignKey(gp => gp.PlatformId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Set the relationship between Game and AgeRating
+            builder.Entity<Game>()
+                .HasOne(g => g.AgeRating)
+                .WithMany(ar => ar.Games)
+                .HasForeignKey(g => g.AgeRatingId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<DLC>()
+                .HasOne(d => d.DLCImage)
+                .WithOne()
+                .HasForeignKey<DLCImage>(di => di.DLCId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+    }
     }
 }

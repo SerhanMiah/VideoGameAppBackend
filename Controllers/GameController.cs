@@ -20,25 +20,27 @@ namespace VideoGameAppBackend.Controllers
             _dbContext = dbContext;
         }
 
-
         // GET: api/game
         [HttpGet]
-        public ActionResult<IEnumerable<Game>> GetGamesWithImages()
+        public ActionResult<IEnumerable<Game>> GetGamesWithImagesAndDLCs()
         {
-            // var requestUrl = HttpContext.Request.Path.Value;
-
-            var gamesWithImages = _dbContext.Games
+            var gamesWithImagesAndDLCs = _dbContext.Games
                 .Include(g => g.GameImages)
+                .Include(g => g.DLCs)
+                .ThenInclude(d => d.DLCImages!)
                 .ToList();
 
-            return gamesWithImages;
+            return gamesWithImagesAndDLCs;
         }
 
+        // GET: api/game/{id}
         [HttpGet("{id}")]
         public ActionResult<Game> GetGame(int id)
         {
             var game = _dbContext.Games
                 .Include(g => g.GameImages)
+                .Include(g => g.DLCs)
+                .ThenInclude(d => d.DLCImages!)
                 .FirstOrDefault(g => g.Id == id);
 
             if (game == null)
@@ -48,7 +50,5 @@ namespace VideoGameAppBackend.Controllers
 
             return game;
         }
-
-
     }
 }

@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,9 +14,9 @@ namespace VideoGameAppBackend.Models
         [StringLength(500)]
         public string? Url { get; set; }
 
-        [ForeignKey("Game")]
         public int GameId { get; set; }
 
+        [ForeignKey("GameId")]
         public virtual Game? Game { get; set; }
     }
 }
