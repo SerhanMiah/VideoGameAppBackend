@@ -9,8 +9,8 @@ namespace VideoGameAppBackend.Models.Product
         public int Id { get; set; }
         
         [Required]
-        public string Rating { get; set; }
+        public string? Rating { get; set; }
 
-        public virtual ICollection<Game> Games { get; set; }
+        public virtual ICollection<Game>? Games { get; set; }
     }
 }

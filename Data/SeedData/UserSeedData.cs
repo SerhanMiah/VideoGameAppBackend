@@ -1,14 +1,14 @@
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
-    using VideoGameAppBackend.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using VideoGameAppBackend.Models;
 
-    namespace VideoGameAppBackend.Data.SeedData
-    {
-public class UserSeedData
+namespace VideoGameAppBackend.Data.SeedData
+{
+   public class UserSeedData
 {
     public static List<ApplicationUser> Seed(ModelBuilder builder, IPasswordHasher<ApplicationUser> passwordHasher)
     {
@@ -22,8 +22,6 @@ public class UserSeedData
             EmailConfirmed = true,
             FirstName = "Admin",
             LastName = "User",
-            ShippingAddress = "Admin's address",
-            DateOfBirth = DateTime.UtcNow.AddYears(-30),
             SecurityStamp = Guid.NewGuid().ToString("D"),
         };
         admin.PasswordHash = passwordHasher.HashPassword(admin, "Admin123!");
@@ -39,16 +37,13 @@ public class UserSeedData
             EmailConfirmed = true,
             FirstName = "Regular",
             LastName = "User",
-            ShippingAddress = "User's address",
-            DateOfBirth = DateTime.UtcNow.AddYears(-25),
             SecurityStamp = Guid.NewGuid().ToString("D"),
         };
         user.PasswordHash = passwordHasher.HashPassword(user, "User123!");
         builder.Entity<ApplicationUser>().HasData(user);
 
         return new List<ApplicationUser> { admin, user };
+        }
     }
+
 }
-
-
-    }

@@ -17,7 +17,11 @@ namespace VideoGameAppBackend.Data.SeedData
                 new AgeRating { Id = 2, Rating = "Mature" },
                 new AgeRating { Id = 3, Rating = "Teen" },
                 new AgeRating { Id = 4, Rating = "Adults Only" },
-                new AgeRating { Id = 5, Rating = "Everyone 10+" }
+                new AgeRating { Id = 5, Rating = "Everyone 10+" },
+                new AgeRating { Id = 6, Rating = "Adults Only 18+" },
+                new AgeRating { Id = 7, Rating = "Everyone 10+ with Cartoon Violence" },
+                new AgeRating { Id = 8, Rating = "Mature 17+ with Blood and Gore, Intense Violence" },
+                new AgeRating { Id = 9, Rating = "Teen 13+ with Mild Language, Violence" }
             };
 
             builder.Entity<AgeRating>().HasData(ageRatings);
@@ -29,7 +33,11 @@ namespace VideoGameAppBackend.Data.SeedData
                 new Genre { Id = 2, Name = "Role Playing" },
                 new Genre { Id = 3, Name = "Action" },
                 new Genre { Id = 4, Name = "Adventure" },
-                new Genre { Id = 5, Name = "Strategy" }
+                new Genre { Id = 5, Name = "Strategy" },
+                new Genre { Id = 6, Name = "Sports" },
+                new Genre { Id = 7, Name = "Simulation" },
+                new Genre { Id = 8, Name = "Fighting" },
+                new Genre { Id = 9, Name = "Horror" }
             };
 
             builder.Entity<Genre>().HasData(gameGenres);
@@ -41,7 +49,11 @@ namespace VideoGameAppBackend.Data.SeedData
                 new Platform { Id = 2, Name = "PlayStation 5" },
                 new Platform { Id = 3, Name = "Xbox Series X" },
                 new Platform { Id = 4, Name = "Nintendo Switch" },
-                new Platform { Id = 5, Name = "Mobile" }
+                new Platform { Id = 5, Name = "Mobile" },
+                new Platform { Id = 6, Name = "PlayStation 4" },
+                new Platform { Id = 7, Name = "Xbox One" },
+                new Platform { Id = 8, Name = "Nintendo Switch Lite" },
+                new Platform { Id = 9, Name = "Google Stadia" }
             };
 
             builder.Entity<Platform>().HasData(gamePlatforms);
@@ -150,6 +162,74 @@ namespace VideoGameAppBackend.Data.SeedData
                     NumberOfLocalPlayers = 4,
                     DiscountedPrice = null,
                     AgeRatingId = 1
+                },
+                 new Game
+                {
+                    Id = 7,
+                    Title = "FIFA 22",
+                    Price = 59.99m,
+                    ReleaseDate = new DateTime(2022, 9, 27),
+                    Description = "Experience the next installment of the popular FIFA football simulation game.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=Apm59G6LgYo",
+                    Developer = "EA Sports",
+                    AverageRating = 4.5,
+                    MinimumSystemRequirements = "N/A",
+                    RecommendedSystemRequirements = "N/A",
+                    HasMultiplayerSupport = true,
+                    NumberOfLocalPlayers = 4,
+                    DiscountedPrice = null,
+                    AgeRatingId = 7
+                },
+                new Game
+                {
+                    Id = 8,
+                    Title = "The Sims 4",
+                    Price = 39.99m,
+                    ReleaseDate = new DateTime(2014, 9, 2),
+                    Description = "Create unique Sims, build their perfect homes, and explore vibrant worlds in The Sims 4.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=mf19woWj1lQ",
+                    Developer = "Maxis",
+                    AverageRating = 4.6,
+                    MinimumSystemRequirements = "OS: Windows XP (SP3), Processor: 1.8 GHz Intel Core 2 Duo, AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 2 GB RAM, Graphics: NVIDIA GeForce 6600 or ATI Radeon X1300 or Intel GMA X4500, Storage: 10 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 7, 8, 8.1, 10 (64-bit), Processor: Intel Core i5 or faster, AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GTX 650 or better, AMD Radeon HD 7770 or better, Storage: 18 GB available space",
+                    HasMultiplayerSupport = false,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 1
+                },
+                new Game
+                {
+                    Id = 9,
+                    Title = "Street Fighter V",
+                    Price = 19.99m,
+                    ReleaseDate = new DateTime(2016, 2, 16),
+                    Description = "Join the legendary Street Fighter tournament and prove your skills in intense battles.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=wYsujrF_Oj0",
+                    Developer = "Capcom",
+                    AverageRating = 4.3,
+                    MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i3-4160 @ 3.60GHz, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 480, GTX 570, GTX 670, or better, Storage: 60 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-4690K @3.50GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, GTX 1060, or better, Storage: 60 GB available space",
+                    HasMultiplayerSupport = true,
+                    NumberOfLocalPlayers = 2,
+                    DiscountedPrice = null,
+                    AgeRatingId = 8
+                },
+                new Game
+                {
+                    Id = 10,
+                    Title = "Resident Evil Village",
+                    Price = 59.99m,
+                    ReleaseDate = new DateTime(2021, 5, 7),
+                    Description = "Enter a world of survival horror and face terrifying creatures in Resident Evil Village.",
+                    TrailerUrl = "https://www.youtube.com/watch?v=3S1QCcVee_Y",
+                    Developer = "Capcom",
+                    AverageRating = 4.8,
+                    MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-7500 or AMD Ryzen 3 1200, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1050 Ti with 4GB VRAM or AMD Radeon RX 560 with 4GB VRAM, DirectX: Version 12, Storage: 40 GB available space",
+                    RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-8700 or AMD Ryzen 5 3600, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1070 or AMD Radeon RX 5700, DirectX: Version 12, Storage: 40 GB available space",
+                    HasMultiplayerSupport = false,
+                    NumberOfLocalPlayers = 1,
+                    DiscountedPrice = null,
+                    AgeRatingId = 9
                 }
             };
 
@@ -252,6 +332,62 @@ namespace VideoGameAppBackend.Data.SeedData
                     Price = 9.99m,
                     Description = "Discover new cave systems, mountain biomes, and blocks in the Caves & Cliffs Update DLC.",
                     GameId = 6
+                },
+                              new DLC
+                {
+                    Id = 11,
+                    DLCName = "FIFA 22: Ultimate Team Expansion",
+                    ReleaseDate = new DateTime(2022, 9, 27),
+                    Price = 9.99m,
+                    Description = "Enhance your FIFA 22 Ultimate Team with new players, packs, and challenges.",
+                    GameId = 7
+                },
+                new DLC
+                {
+                    Id = 12,
+                    DLCName = "FIFA 22: Career Mode Expansion",
+                    ReleaseDate = new DateTime(2022, 9, 27),
+                    Price = 14.99m,
+                    Description = "Expand your FIFA 22 Career Mode experience with new features and gameplay enhancements.",
+                    GameId = 7
+                },
+                // DLCs for "The Sims 4"
+                new DLC
+                {
+                    Id = 13,
+                    DLCName = "The Sims 4: Seasons",
+                    ReleaseDate = new DateTime(2018, 6, 22),
+                    Price = 19.99m,
+                    Description = "Add weather, holidays, and seasonal activities to your Sims' lives in The Sims 4: Seasons.",
+                    GameId = 8
+                },
+                new DLC
+                {
+                    Id = 14,
+                    DLCName = "The Sims 4: Get Together",
+                    ReleaseDate = new DateTime(2015, 12, 8),
+                    Price = 14.99m,
+                    Description = "Explore a new world, meet new Sims, and join clubs in The Sims 4: Get Together.",
+                    GameId = 8
+                },
+                // DLCs for "Resident Evil Village"
+                new DLC
+                {
+                    Id = 15,
+                    DLCName = "Resident Evil Village: The Mercenaries",
+                    ReleaseDate = new DateTime(2021, 7, 1),
+                    Price = 9.99m,
+                    Description = "Take on challenging missions and survive against hordes of enemies in The Mercenaries DLC.",
+                    GameId = 10
+                },
+                new DLC
+                {
+                    Id = 16,
+                    DLCName = "Resident Evil Village: The Tragedy of Ethan Winters",
+                    ReleaseDate = new DateTime(2022, 1, 31),
+                    Price = 14.99m,
+                    Description = "Uncover the dark secrets of Ethan Winters' journey in The Tragedy of Ethan Winters DLC.",
+                    GameId = 10
                 }
             };
 
@@ -334,6 +470,51 @@ namespace VideoGameAppBackend.Data.SeedData
                     ImageUrl = "https://example.com/dlc_image_10.jpg",
                     Caption = "Minecraft: Caves & Cliffs Update DLC Image",
                     DLCId = 10
+                },
+                               // DLC Images for "FIFA 22: Ultimate Team Expansion"
+                new DLCImage
+                {
+                    Id = 11,
+                    ImageUrl = "https://example.com/dlc_image_11.jpg",
+                    Caption = "FIFA 22: Ultimate Team Expansion DLC Image",
+                    DLCId = 11
+                },
+                new DLCImage
+                {
+                    Id = 12,
+                    ImageUrl = "https://example.com/dlc_image_12.jpg",
+                    Caption = "FIFA 22: Career Mode Expansion DLC Image",
+                    DLCId = 12
+                },
+                // DLC Images for "The Sims 4: Seasons"
+                new DLCImage
+                {
+                    Id = 13,
+                    ImageUrl = "https://example.com/dlc_image_13.jpg",
+                    Caption = "The Sims 4: Seasons DLC Image",
+                    DLCId = 13
+                },
+                new DLCImage
+                {
+                    Id = 14,
+                    ImageUrl = "https://example.com/dlc_image_14.jpg",
+                    Caption = "The Sims 4: Get Together DLC Image",
+                    DLCId = 14
+                },
+                // DLC Images for "Resident Evil Village: The Mercenaries"
+                new DLCImage
+                {
+                    Id = 15,
+                    ImageUrl = "https://example.com/dlc_image_15.jpg",
+                    Caption = "Resident Evil Village: The Mercenaries DLC Image",
+                    DLCId = 15
+                },
+                new DLCImage
+                {
+                    Id = 16,
+                    ImageUrl = "https://example.com/dlc_image_16.jpg",
+                    Caption = "Resident Evil Village: The Tragedy of Ethan Winters DLC Image",
+                    DLCId = 16
                 }
             };
 

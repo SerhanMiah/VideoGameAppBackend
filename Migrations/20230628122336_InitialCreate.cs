@@ -57,12 +57,19 @@ namespace VideoGameBackend.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    FirstName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    FirstName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    LastName = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    LastName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    ShippingAddress = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
+                    Address = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    City = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    State = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PostalCode = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Country = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -594,21 +601,25 @@ namespace VideoGameBackend.Migrations
                     { 2, "Mature" },
                     { 3, "Teen" },
                     { 4, "Adults Only" },
-                    { 5, "Everyone 10+" }
+                    { 5, "Everyone 10+" },
+                    { 6, "Adults Only 18+" },
+                    { 7, "Everyone 10+ with Cartoon Violence" },
+                    { 8, "Mature 17+ with Blood and Gore, Intense Violence" },
+                    { 9, "Teen 13+ with Mild Language, Violence" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "5c7bf563-133c-4a0d-8571-883968c8a680", null, "Admin", "ADMIN" });
+                values: new object[] { "08b99dfa-2203-40cb-96b0-07060ae47710", null, "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "ShippingAddress", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "Country", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PostalCode", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "6be8c522-1a51-4b7b-a1dd-31e03a63300d", 0, "cd2b4abb-bea6-491b-8c55-f3a23a64450a", new DateTime(1998, 6, 27, 20, 29, 18, 927, DateTimeKind.Utc).AddTicks(6870), "user@videogameshop.com", true, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAEOF4p3RdhyUZjbKtjUSrwz+Lf9mAmHY+1xeV85A1lZXLmSOgdBJ3Vmu9674XQ9SsUg==", null, false, "5b013b5e-fe1b-4b4a-be1c-6448b94c442d", "User's address", false, "user" },
-                    { "f84055a7-e92e-452a-80a2-db5e866cea68", 0, "a7dda848-75c6-4623-8762-386e04d94577", new DateTime(1993, 6, 27, 20, 29, 18, 889, DateTimeKind.Utc).AddTicks(4240), "admin@videogameshop.com", true, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEDrwF8mKwL2sm/MkuOnoTgJGIJ9sI4MDYrr4SmhG2dHIVMaOFFHkVTVdkOlVg1Gn/A==", null, false, "eefec2fc-c597-4aac-b373-06c225550050", "Admin's address", false, "admin" }
+                    { "08fc19ac-260b-43f0-96ce-16f57bf619dc", 0, null, null, "e3ab21a1-241c-41e2-ba6a-914a9973a01e", null, "admin@videogameshop.com", true, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEMcVRj08SFM9NlmcgtjVj1HfJIQtT8jfuqEwDY6nyc+N/aVFxz2mQ3uaj9lwdS2fVA==", null, false, null, "50945a48-ac62-4c52-b35b-b5a420015000", null, false, "admin" },
+                    { "46869d21-9511-43d8-9ad8-839ac2cb5828", 0, null, null, "b2b45ebf-e9f0-441e-a1f2-84d402026dcc", null, "user@videogameshop.com", true, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAEG8d7qggzmrk2gld4ndFLH/o6OWeohfVFT0ulP2Ot11W1LH2JufSP70NTX4pfJU+sg==", null, false, null, "376b6da3-944a-4afa-9175-f50553d77b40", null, false, "user" }
                 });
 
             migrationBuilder.InsertData(
@@ -620,7 +631,11 @@ namespace VideoGameBackend.Migrations
                     { 2, "Role Playing" },
                     { 3, "Action" },
                     { 4, "Adventure" },
-                    { 5, "Strategy" }
+                    { 5, "Strategy" },
+                    { 6, "Sports" },
+                    { 7, "Simulation" },
+                    { 8, "Fighting" },
+                    { 9, "Horror" }
                 });
 
             migrationBuilder.InsertData(
@@ -632,13 +647,17 @@ namespace VideoGameBackend.Migrations
                     { 2, "PlayStation 5" },
                     { 3, "Xbox Series X" },
                     { 4, "Nintendo Switch" },
-                    { 5, "Mobile" }
+                    { 5, "Mobile" },
+                    { 6, "PlayStation 4" },
+                    { 7, "Xbox One" },
+                    { 8, "Nintendo Switch Lite" },
+                    { 9, "Google Stadia" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "5c7bf563-133c-4a0d-8571-883968c8a680", "f84055a7-e92e-452a-80a2-db5e866cea68" });
+                values: new object[] { "08b99dfa-2203-40cb-96b0-07060ae47710", "08fc19ac-260b-43f0-96ce-16f57bf619dc" });
 
             migrationBuilder.InsertData(
                 table: "Games",
@@ -650,7 +669,11 @@ namespace VideoGameBackend.Migrations
                     { 3, 2, 4.9000000000000004, "Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland.", "Rockstar Games", null, null, null, true, "OS: Windows 7 or 8 (64-bit), Processor: Intel Core i5-2500K 3.3 GHz or AMD Phenom II X4 940, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 770 or AMD Radeon R9 280, Storage: 150 GB available space", 1, 49.99m, null, "OS: Windows 10 (64-bit), Processor: Intel Core i7-4770K 3.5 GHz or AMD Ryzen 5 1500X 3.5 GHz, Memory: 12 GB RAM, Graphics: NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 480 4GB, Storage: 150 GB available space", new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Red Dead Redemption 2", "https://www.youtube.com/watch?v=Dw_oH5oiUSE" },
                     { 4, 1, 4.7000000000000002, "The Legend of Zelda: Breath of the Wild is an action-adventure game set in an open world.", "Nintendo", null, null, null, false, "N/A", 1, 59.99m, null, "N/A", new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Legend of Zelda: Breath of the Wild", "https://www.youtube.com/watch?v=zw47_q9wbBE" },
                     { 5, 4, 4.7000000000000002, "Grand Theft Auto V is an action-adventure game set in an open world.", "Rockstar North", null, null, null, true, "OS: Windows 7 (64-bit), Processor: Intel Core 2 Quad CPU Q6600 2.4 GHz or AMD Phenom 9850 Quad-Core Processor 2.5 GHz, Memory: 4 GB RAM, Graphics: NVIDIA 9800 GT 1GB or AMD HD 4870 1GB, Storage: 72 GB available space", 1, 29.99m, null, "OS: Windows 10 (64-bit), Processor: Intel Core i5 3470 3.2 GHz or AMD X8 FX-8350 4 GHz, Memory: 8 GB RAM, Graphics: NVIDIA GTX 660 2GB or AMD HD7870 2GB, Storage: 72 GB available space", new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Grand Theft Auto V", "https://www.youtube.com/watch?v=3DBrG2YjqQA" },
-                    { 6, 1, 4.5, "Minecraft is a sandbox game that allows players to build and explore virtual worlds.", "Mojang Studios", null, null, null, true, "OS: Windows 10 (64-bit), Processor: Intel Core i5-4690 or AMD A10-7800 or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 700 Series or AMD Radeon Rx 200 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space", 4, 26.99m, null, "OS: Windows 10 (64-bit), Processor: Intel Core i7-6500U or AMD A8-6600K or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 900 Series or AMD Radeon Rx 300 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space", new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Minecraft", "https://www.youtube.com/watch?v=92AoX5OyiU4" }
+                    { 6, 1, 4.5, "Minecraft is a sandbox game that allows players to build and explore virtual worlds.", "Mojang Studios", null, null, null, true, "OS: Windows 10 (64-bit), Processor: Intel Core i5-4690 or AMD A10-7800 or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 700 Series or AMD Radeon Rx 200 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space", 4, 26.99m, null, "OS: Windows 10 (64-bit), Processor: Intel Core i7-6500U or AMD A8-6600K or equivalent, Memory: 8 GB RAM, Graphics: NVIDIA GeForce 900 Series or AMD Radeon Rx 300 Series or equivalent with OpenGL 4.5 support, Storage: 4 GB available space", new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Minecraft", "https://www.youtube.com/watch?v=92AoX5OyiU4" },
+                    { 7, 7, 4.5, "Experience the next installment of the popular FIFA football simulation game.", "EA Sports", null, null, null, true, "N/A", 4, 59.99m, null, "N/A", new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), "FIFA 22", "https://www.youtube.com/watch?v=Apm59G6LgYo" },
+                    { 8, 1, 4.5999999999999996, "Create unique Sims, build their perfect homes, and explore vibrant worlds in The Sims 4.", "Maxis", null, null, null, false, "OS: Windows XP (SP3), Processor: 1.8 GHz Intel Core 2 Duo, AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 2 GB RAM, Graphics: NVIDIA GeForce 6600 or ATI Radeon X1300 or Intel GMA X4500, Storage: 10 GB available space", 1, 39.99m, null, "OS: Windows 7, 8, 8.1, 10 (64-bit), Processor: Intel Core i5 or faster, AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GTX 650 or better, AMD Radeon HD 7770 or better, Storage: 18 GB available space", new DateTime(2014, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Sims 4", "https://www.youtube.com/watch?v=mf19woWj1lQ" },
+                    { 9, 8, 4.2999999999999998, "Join the legendary Street Fighter tournament and prove your skills in intense battles.", "Capcom", null, null, null, true, "OS: Windows 7 (64-bit), Processor: Intel Core i3-4160 @ 3.60GHz, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 480, GTX 570, GTX 670, or better, Storage: 60 GB available space", 2, 19.99m, null, "OS: Windows 7 (64-bit), Processor: Intel Core i5-4690K @3.50GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, GTX 1060, or better, Storage: 60 GB available space", new DateTime(2016, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Street Fighter V", "https://www.youtube.com/watch?v=wYsujrF_Oj0" },
+                    { 10, 9, 4.7999999999999998, "Enter a world of survival horror and face terrifying creatures in Resident Evil Village.", "Capcom", null, null, null, false, "OS: Windows 10 (64-bit), Processor: Intel Core i5-7500 or AMD Ryzen 3 1200, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1050 Ti with 4GB VRAM or AMD Radeon RX 560 with 4GB VRAM, DirectX: Version 12, Storage: 40 GB available space", 1, 59.99m, null, "OS: Windows 10 (64-bit), Processor: Intel Core i7-8700 or AMD Ryzen 5 3600, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1070 or AMD Radeon RX 5700, DirectX: Version 12, Storage: 40 GB available space", new DateTime(2021, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Resident Evil Village", "https://www.youtube.com/watch?v=3S1QCcVee_Y" }
                 });
 
             migrationBuilder.InsertData(
@@ -667,7 +690,13 @@ namespace VideoGameBackend.Migrations
                     { 7, null, null, "Grand Theft Auto V: The Diamond Casino Heist", "Plan and execute the most daring heist in the history of Los Santos in The Diamond Casino Heist DLC.", null, null, 5, null, 9.99m, null, null, new DateTime(2019, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 8, null, null, "Grand Theft Auto V: The Cayo Perico Heist", "Infiltrate the remote island of Cayo Perico and pull off a monumental heist in The Cayo Perico Heist DLC.", null, null, 5, null, 14.99m, null, null, new DateTime(2020, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 9, null, null, "Minecraft: Nether Update", "Explore the dangerous Nether dimension with new mobs, biomes, and materials in the Nether Update DLC.", null, null, 6, null, 4.99m, null, null, new DateTime(2020, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 10, null, null, "Minecraft: Caves & Cliffs Update", "Discover new cave systems, mountain biomes, and blocks in the Caves & Cliffs Update DLC.", null, null, 6, null, 9.99m, null, null, new DateTime(2021, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 10, null, null, "Minecraft: Caves & Cliffs Update", "Discover new cave systems, mountain biomes, and blocks in the Caves & Cliffs Update DLC.", null, null, 6, null, 9.99m, null, null, new DateTime(2021, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 11, null, null, "FIFA 22: Ultimate Team Expansion", "Enhance your FIFA 22 Ultimate Team with new players, packs, and challenges.", null, null, 7, null, 9.99m, null, null, new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 12, null, null, "FIFA 22: Career Mode Expansion", "Expand your FIFA 22 Career Mode experience with new features and gameplay enhancements.", null, null, 7, null, 14.99m, null, null, new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 13, null, null, "The Sims 4: Seasons", "Add weather, holidays, and seasonal activities to your Sims' lives in The Sims 4: Seasons.", null, null, 8, null, 19.99m, null, null, new DateTime(2018, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 14, null, null, "The Sims 4: Get Together", "Explore a new world, meet new Sims, and join clubs in The Sims 4: Get Together.", null, null, 8, null, 14.99m, null, null, new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 15, null, null, "Resident Evil Village: The Mercenaries", "Take on challenging missions and survive against hordes of enemies in The Mercenaries DLC.", null, null, 10, null, 9.99m, null, null, new DateTime(2021, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 16, null, null, "Resident Evil Village: The Tragedy of Ethan Winters", "Uncover the dark secrets of Ethan Winters' journey in The Tragedy of Ethan Winters DLC.", null, null, 10, null, 14.99m, null, null, new DateTime(2022, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -721,7 +750,13 @@ namespace VideoGameBackend.Migrations
                     { 7, "Grand Theft Auto V: The Diamond Casino Heist DLC Image", 7, null, "https://example.com/dlc_image_7.jpg" },
                     { 8, "Grand Theft Auto V: The Cayo Perico Heist DLC Image", 8, null, "https://example.com/dlc_image_8.jpg" },
                     { 9, "Minecraft: Nether Update DLC Image", 9, null, "https://example.com/dlc_image_9.jpg" },
-                    { 10, "Minecraft: Caves & Cliffs Update DLC Image", 10, null, "https://example.com/dlc_image_10.jpg" }
+                    { 10, "Minecraft: Caves & Cliffs Update DLC Image", 10, null, "https://example.com/dlc_image_10.jpg" },
+                    { 11, "FIFA 22: Ultimate Team Expansion DLC Image", 11, null, "https://example.com/dlc_image_11.jpg" },
+                    { 12, "FIFA 22: Career Mode Expansion DLC Image", 12, null, "https://example.com/dlc_image_12.jpg" },
+                    { 13, "The Sims 4: Seasons DLC Image", 13, null, "https://example.com/dlc_image_13.jpg" },
+                    { 14, "The Sims 4: Get Together DLC Image", 14, null, "https://example.com/dlc_image_14.jpg" },
+                    { 15, "Resident Evil Village: The Mercenaries DLC Image", 15, null, "https://example.com/dlc_image_15.jpg" },
+                    { 16, "Resident Evil Village: The Tragedy of Ethan Winters DLC Image", 16, null, "https://example.com/dlc_image_16.jpg" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -47,7 +47,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5c7bf563-133c-4a0d-8571-883968c8a680",
+                            Id = "08b99dfa-2203-40cb-96b0-07060ae47710",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -138,8 +138,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f84055a7-e92e-452a-80a2-db5e866cea68",
-                            RoleId = "5c7bf563-133c-4a0d-8571-883968c8a680"
+                            UserId = "08fc19ac-260b-43f0-96ce-16f57bf619dc",
+                            RoleId = "08b99dfa-2203-40cb-96b0-07060ae47710"
                         });
                 });
 
@@ -170,12 +170,18 @@ namespace VideoGameBackend.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("City")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Country")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -185,14 +191,10 @@ namespace VideoGameBackend.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -217,12 +219,14 @@ namespace VideoGameBackend.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ShippingAddress")
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("State")
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
@@ -245,10 +249,9 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f84055a7-e92e-452a-80a2-db5e866cea68",
+                            Id = "08fc19ac-260b-43f0-96ce-16f57bf619dc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a7dda848-75c6-4623-8762-386e04d94577",
-                            DateOfBirth = new DateTime(1993, 6, 27, 20, 29, 18, 889, DateTimeKind.Utc).AddTicks(4240),
+                            ConcurrencyStamp = "e3ab21a1-241c-41e2-ba6a-914a9973a01e",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -256,19 +259,17 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDrwF8mKwL2sm/MkuOnoTgJGIJ9sI4MDYrr4SmhG2dHIVMaOFFHkVTVdkOlVg1Gn/A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMcVRj08SFM9NlmcgtjVj1HfJIQtT8jfuqEwDY6nyc+N/aVFxz2mQ3uaj9lwdS2fVA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eefec2fc-c597-4aac-b373-06c225550050",
-                            ShippingAddress = "Admin's address",
+                            SecurityStamp = "50945a48-ac62-4c52-b35b-b5a420015000",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "6be8c522-1a51-4b7b-a1dd-31e03a63300d",
+                            Id = "46869d21-9511-43d8-9ad8-839ac2cb5828",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd2b4abb-bea6-491b-8c55-f3a23a64450a",
-                            DateOfBirth = new DateTime(1998, 6, 27, 20, 29, 18, 927, DateTimeKind.Utc).AddTicks(6870),
+                            ConcurrencyStamp = "b2b45ebf-e9f0-441e-a1f2-84d402026dcc",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -276,10 +277,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOF4p3RdhyUZjbKtjUSrwz+Lf9mAmHY+1xeV85A1lZXLmSOgdBJ3Vmu9674XQ9SsUg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG8d7qggzmrk2gld4ndFLH/o6OWeohfVFT0ulP2Ot11W1LH2JufSP70NTX4pfJU+sg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b013b5e-fe1b-4b4a-be1c-6448b94c442d",
-                            ShippingAddress = "User's address",
+                            SecurityStamp = "376b6da3-944a-4afa-9175-f50553d77b40",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -446,6 +446,70 @@ namespace VideoGameBackend.Migrations
                             ReleaseDate = new DateTime(2011, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Minecraft",
                             TrailerUrl = "https://www.youtube.com/watch?v=92AoX5OyiU4"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AgeRatingId = 7,
+                            AverageRating = 4.5,
+                            Description = "Experience the next installment of the popular FIFA football simulation game.",
+                            Developer = "EA Sports",
+                            HasMultiplayerSupport = true,
+                            MinimumSystemRequirements = "N/A",
+                            NumberOfLocalPlayers = 4,
+                            Price = 59.99m,
+                            RecommendedSystemRequirements = "N/A",
+                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "FIFA 22",
+                            TrailerUrl = "https://www.youtube.com/watch?v=Apm59G6LgYo"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AgeRatingId = 1,
+                            AverageRating = 4.5999999999999996,
+                            Description = "Create unique Sims, build their perfect homes, and explore vibrant worlds in The Sims 4.",
+                            Developer = "Maxis",
+                            HasMultiplayerSupport = false,
+                            MinimumSystemRequirements = "OS: Windows XP (SP3), Processor: 1.8 GHz Intel Core 2 Duo, AMD Athlon 64 Dual-Core 4000+ or equivalent, Memory: 2 GB RAM, Graphics: NVIDIA GeForce 6600 or ATI Radeon X1300 or Intel GMA X4500, Storage: 10 GB available space",
+                            NumberOfLocalPlayers = 1,
+                            Price = 39.99m,
+                            RecommendedSystemRequirements = "OS: Windows 7, 8, 8.1, 10 (64-bit), Processor: Intel Core i5 or faster, AMD Athlon X4, Memory: 4 GB RAM, Graphics: NVIDIA GTX 650 or better, AMD Radeon HD 7770 or better, Storage: 18 GB available space",
+                            ReleaseDate = new DateTime(2014, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "The Sims 4",
+                            TrailerUrl = "https://www.youtube.com/watch?v=mf19woWj1lQ"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AgeRatingId = 8,
+                            AverageRating = 4.2999999999999998,
+                            Description = "Join the legendary Street Fighter tournament and prove your skills in intense battles.",
+                            Developer = "Capcom",
+                            HasMultiplayerSupport = true,
+                            MinimumSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i3-4160 @ 3.60GHz, Memory: 6 GB RAM, Graphics: NVIDIA GeForce GTX 480, GTX 570, GTX 670, or better, Storage: 60 GB available space",
+                            NumberOfLocalPlayers = 2,
+                            Price = 19.99m,
+                            RecommendedSystemRequirements = "OS: Windows 7 (64-bit), Processor: Intel Core i5-4690K @3.50GHz, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 960, GTX 1060, or better, Storage: 60 GB available space",
+                            ReleaseDate = new DateTime(2016, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Street Fighter V",
+                            TrailerUrl = "https://www.youtube.com/watch?v=wYsujrF_Oj0"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AgeRatingId = 9,
+                            AverageRating = 4.7999999999999998,
+                            Description = "Enter a world of survival horror and face terrifying creatures in Resident Evil Village.",
+                            Developer = "Capcom",
+                            HasMultiplayerSupport = false,
+                            MinimumSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i5-7500 or AMD Ryzen 3 1200, Memory: 8 GB RAM, Graphics: NVIDIA GeForce GTX 1050 Ti with 4GB VRAM or AMD Radeon RX 560 with 4GB VRAM, DirectX: Version 12, Storage: 40 GB available space",
+                            NumberOfLocalPlayers = 1,
+                            Price = 59.99m,
+                            RecommendedSystemRequirements = "OS: Windows 10 (64-bit), Processor: Intel Core i7-8700 or AMD Ryzen 5 3600, Memory: 16 GB RAM, Graphics: NVIDIA GeForce GTX 1070 or AMD Radeon RX 5700, DirectX: Version 12, Storage: 40 GB available space",
+                            ReleaseDate = new DateTime(2021, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Resident Evil Village",
+                            TrailerUrl = "https://www.youtube.com/watch?v=3S1QCcVee_Y"
                         });
                 });
 
@@ -847,6 +911,26 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 5,
                             Rating = "Everyone 10+"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Rating = "Adults Only 18+"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Rating = "Everyone 10+ with Cartoon Violence"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Rating = "Mature 17+ with Blood and Gore, Intense Violence"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Rating = "Teen 13+ with Mild Language, Violence"
                         });
                 });
 
@@ -994,6 +1078,60 @@ namespace VideoGameBackend.Migrations
                             GameId = 6,
                             Price = 9.99m,
                             ReleaseDate = new DateTime(2021, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DLCName = "FIFA 22: Ultimate Team Expansion",
+                            Description = "Enhance your FIFA 22 Ultimate Team with new players, packs, and challenges.",
+                            GameId = 7,
+                            Price = 9.99m,
+                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DLCName = "FIFA 22: Career Mode Expansion",
+                            Description = "Expand your FIFA 22 Career Mode experience with new features and gameplay enhancements.",
+                            GameId = 7,
+                            Price = 14.99m,
+                            ReleaseDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DLCName = "The Sims 4: Seasons",
+                            Description = "Add weather, holidays, and seasonal activities to your Sims' lives in The Sims 4: Seasons.",
+                            GameId = 8,
+                            Price = 19.99m,
+                            ReleaseDate = new DateTime(2018, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DLCName = "The Sims 4: Get Together",
+                            Description = "Explore a new world, meet new Sims, and join clubs in The Sims 4: Get Together.",
+                            GameId = 8,
+                            Price = 14.99m,
+                            ReleaseDate = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DLCName = "Resident Evil Village: The Mercenaries",
+                            Description = "Take on challenging missions and survive against hordes of enemies in The Mercenaries DLC.",
+                            GameId = 10,
+                            Price = 9.99m,
+                            ReleaseDate = new DateTime(2021, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DLCName = "Resident Evil Village: The Tragedy of Ethan Winters",
+                            Description = "Uncover the dark secrets of Ethan Winters' journey in The Tragedy of Ethan Winters DLC.",
+                            GameId = 10,
+                            Price = 14.99m,
+                            ReleaseDate = new DateTime(2022, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1095,6 +1233,48 @@ namespace VideoGameBackend.Migrations
                             Caption = "Minecraft: Caves & Cliffs Update DLC Image",
                             DLCId = 10,
                             ImageUrl = "https://example.com/dlc_image_10.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Caption = "FIFA 22: Ultimate Team Expansion DLC Image",
+                            DLCId = 11,
+                            ImageUrl = "https://example.com/dlc_image_11.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Caption = "FIFA 22: Career Mode Expansion DLC Image",
+                            DLCId = 12,
+                            ImageUrl = "https://example.com/dlc_image_12.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Caption = "The Sims 4: Seasons DLC Image",
+                            DLCId = 13,
+                            ImageUrl = "https://example.com/dlc_image_13.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Caption = "The Sims 4: Get Together DLC Image",
+                            DLCId = 14,
+                            ImageUrl = "https://example.com/dlc_image_14.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Caption = "Resident Evil Village: The Mercenaries DLC Image",
+                            DLCId = 15,
+                            ImageUrl = "https://example.com/dlc_image_15.jpg"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Caption = "Resident Evil Village: The Tragedy of Ethan Winters DLC Image",
+                            DLCId = 16,
+                            ImageUrl = "https://example.com/dlc_image_16.jpg"
                         });
                 });
 
@@ -1167,6 +1347,26 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 5,
                             Name = "Strategy"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Sports"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Simulation"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Fighting"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Horror"
                         });
                 });
 
@@ -1235,6 +1435,26 @@ namespace VideoGameBackend.Migrations
                         {
                             Id = 5,
                             Name = "Mobile"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "PlayStation 4"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Xbox One"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Nintendo Switch Lite"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Google Stadia"
                         });
                 });
 
@@ -1320,7 +1540,7 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Order", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
@@ -1465,6 +1685,11 @@ namespace VideoGameBackend.Migrations
                     b.HasOne("VideoGameAppBackend.Models.Game", null)
                         .WithMany("SupportedLanguages")
                         .HasForeignKey("GameId");
+                });
+
+            modelBuilder.Entity("VideoGameAppBackend.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Game", b =>
