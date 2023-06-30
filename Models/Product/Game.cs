@@ -35,7 +35,7 @@ namespace VideoGameAppBackend.Models
         public virtual ICollection<GamePlatform>? GamePlatforms { get; set; }
 
         [InverseProperty("Game")]
-        public virtual ICollection<GameImage>? GameImages { get; set; }
+        public ICollection<GameImage> GameImages { get; set; } = new List<GameImage>();
 
         [Display(Name = "Trailer URL")]
         [DataType(DataType.Url)]
@@ -68,7 +68,7 @@ namespace VideoGameAppBackend.Models
         public int NumberOfLocalPlayers { get; set; }
 
         [Display(Name = "DLCs")]
-        public virtual ICollection<DLC>? DLCs { get; set; }
+        public ICollection<DLC> DLCs { get; set; } = new List<DLC>();
 
         [Display(Name = "Discounted Price")]
         [Column(TypeName = "decimal(18, 2)")]
