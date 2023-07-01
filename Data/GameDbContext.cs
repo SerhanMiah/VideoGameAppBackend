@@ -25,15 +25,22 @@ namespace VideoGameAppBackend.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<DLC> DLCs { get; set; }
-
         public DbSet<DLCImage> DLCImages { get; set; }
         public DbSet<GameGenre> GameGenres { get; set; }
         public DbSet<GamePlatform> GamePlatforms { get; set; }
         public DbSet<AgeRating> AgeRatings { get; set; }
         public DbSet<Language> Languages { get; set; }
+
+        public DbSet<WishList> WishLists { get; set; }
+
+        public DbSet<WishlistItem> WishlistItems { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -102,6 +109,33 @@ namespace VideoGameAppBackend.Data
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-    }
+            // Set the relationship between Cart and CartItem
+            builder.Entity<Cart>()
+                .HasMany(c => c.CartItems)
+                .WithOne(ci => ci.Cart)
+                .HasForeignKey(ci => ci.CartId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Set the relationship between ApplicationUser and Cart
+            builder.Entity<ApplicationUser>()
+                .HasOne(u => u.Cart)
+                .WithOne(c => c.User)
+                .HasForeignKey<Cart>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Set the relationship between user and Review
+            builder.Entity<ApplicationUser>()
+                .HasMany(u => u.Reviews)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Set the relationship between user and wishlist
+            builder.Entity<ApplicationUser>()
+                .HasMany(w => w.WishLists)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

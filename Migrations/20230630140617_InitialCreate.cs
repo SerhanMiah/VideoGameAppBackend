@@ -611,15 +611,15 @@ namespace VideoGameBackend.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "08b99dfa-2203-40cb-96b0-07060ae47710", null, "Admin", "ADMIN" });
+                values: new object[] { "ba88d836-174d-4858-a693-3dcb7c1f3302", null, "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Address", "City", "ConcurrencyStamp", "Country", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PostalCode", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "08fc19ac-260b-43f0-96ce-16f57bf619dc", 0, null, null, "e3ab21a1-241c-41e2-ba6a-914a9973a01e", null, "admin@videogameshop.com", true, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEMcVRj08SFM9NlmcgtjVj1HfJIQtT8jfuqEwDY6nyc+N/aVFxz2mQ3uaj9lwdS2fVA==", null, false, null, "50945a48-ac62-4c52-b35b-b5a420015000", null, false, "admin" },
-                    { "46869d21-9511-43d8-9ad8-839ac2cb5828", 0, null, null, "b2b45ebf-e9f0-441e-a1f2-84d402026dcc", null, "user@videogameshop.com", true, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAEG8d7qggzmrk2gld4ndFLH/o6OWeohfVFT0ulP2Ot11W1LH2JufSP70NTX4pfJU+sg==", null, false, null, "376b6da3-944a-4afa-9175-f50553d77b40", null, false, "user" }
+                    { "14b320d7-a7f8-4614-bcf1-d697c2727983", 0, null, null, "f25fb2b3-b7ae-4808-9733-4dc52e49d666", null, "admin@videogameshop.com", true, "Admin", "User", false, null, "ADMIN@VIDEOGAMESHOP.COM", "ADMIN", "AQAAAAIAAYagAAAAEPGi7QZk9VSWuGtvSaJu3zS7IKF/GI/1XJ1E2iY55rNOg3WB7dnauFKbwk7P7/ULlA==", null, false, null, "cc7e7692-e824-43e7-a889-0238b079fd5d", null, false, "admin" },
+                    { "ec396650-57f6-4219-bd2c-addd8277ab9d", 0, null, null, "0d10ce55-0452-434d-bb2f-7c4542627739", null, "user@videogameshop.com", true, "Regular", "User", false, null, "USER@VIDEOGAMESHOP.COM", "USER", "AQAAAAIAAYagAAAAEOXfAlj8oGLNYn69HzbRxGY6zl1BqrWLHe+Mo7z3RjfxVZuO5i87aLw0dRm2jPrCtw==", null, false, null, "398e8a7a-6779-4ece-9514-a2951c4d49e2", null, false, "user" }
                 });
 
             migrationBuilder.InsertData(
@@ -657,7 +657,7 @@ namespace VideoGameBackend.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "08b99dfa-2203-40cb-96b0-07060ae47710", "08fc19ac-260b-43f0-96ce-16f57bf619dc" });
+                values: new object[] { "ba88d836-174d-4858-a693-3dcb7c1f3302", "14b320d7-a7f8-4614-bcf1-d697c2727983" });
 
             migrationBuilder.InsertData(
                 table: "Games",

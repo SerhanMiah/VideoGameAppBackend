@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using VideoGameAppBackend.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using VideoGameAppBackend.Models.User;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using VideoGameAppBackend.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
-namespace AnimeShop.Controllers
+namespace VideoGameAppBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -32,20 +32,33 @@ namespace AnimeShop.Controllers
 
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> Register(Register model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser 
-            { 
-                UserName = model.Email, 
+            var userExists = await _userManager.FindByEmailAsync(model.Email);
+
+            if (userExists != null)
+            {
+                return BadRequest(new { message = "User already exists with this email." });
+            }
+
+            var user = new ApplicationUser
+            {
+                UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
+                Address = model.Address,
+                City = model.City,
+                State = model.State,
+                PostalCode = model.PostalCode,
+                Country = model.Country
             };
+
 
             if (string.IsNullOrEmpty(model.Password))
             {
@@ -53,19 +66,19 @@ namespace AnimeShop.Controllers
             }
 
             var result = await _userManager.CreateAsync(user, model.Password);
+
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return Ok(new { message = "User successfully registered and signed in."});
+                return Ok(new { message = "User successfully registered and signed in." });
             }
 
-            AddErrors(result);
-            return BadRequest(ModelState);
+            return BadRequest(result.Errors);
         }
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] Login userModel)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel userModel)
         {
             if (!ModelState.IsValid || string.IsNullOrEmpty(userModel.Password) || string.IsNullOrEmpty(userModel.Email))
             {
@@ -73,25 +86,31 @@ namespace AnimeShop.Controllers
             }
 
             var user = await _userManager.FindByEmailAsync(userModel.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, userModel.Password))
+
+            if (user == null)
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Name, user.UserName ?? ""),
-                };
-
-                var token = GenerateJwtToken(claims);
-
-                return Ok(new { Token = token });
+                return BadRequest("User does not exist");
             }
 
-            return BadRequest("Invalid UserName or Password");
+            if (!await _userManager.CheckPasswordAsync(user, userModel.Password))
+            {
+                return BadRequest("Invalid password");
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Name, user.UserName ?? ""),
+            };
+
+            var token = GenerateJwtToken(claims);
+
+            return Ok(new { Token = token });
         }
 
-        [Authorize]
         [HttpGet]
         [Route("profile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetProfile()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -102,27 +121,29 @@ namespace AnimeShop.Controllers
             }
 
             var user = await _userManager.FindByIdAsync(userId);
+
             if (user == null)
             {
                 return NotFound("User not found.");
             }
 
-            var profile = new UserViewModel
+            var profile = new
             {
-                Id = user.Id,
-                Email = user.Email,
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Address = user.Address,
-                City = user.City,
-                State = user.State,
-                PostalCode = user.PostalCode,
-                Country = user.Country
+                user.Id,
+                user.Email,
+                user.UserName,
+                user.FirstName,
+                user.LastName,
+                user.Address,
+                user.City,
+                user.State,
+                user.PostalCode,
+                user.Country
             };
 
             return Ok(profile);
         }
+
 
         private string GenerateJwtToken(List<Claim> claims)
         {
@@ -145,14 +166,6 @@ namespace AnimeShop.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
         }
     }
 }

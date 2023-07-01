@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace VideoGameAppBackend.Models
 {
-        public class Register
-        {
+    public class RegisterViewModel
+    {
         [Required]  
         [EmailAddress]
         public string? Email { get; set; }

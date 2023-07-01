@@ -5,13 +5,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text.Json.Serialization;
+using VideoGameAppBackend.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<GameDbContext>(options =>
-    options.UseMySql(configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 21))));
+    options.UseMySql(
+    configuration.GetConnectionString("DefaultConnection"),
+    new MySqlServerVersion(new Version(8, 0, 21)))
+    .EnableSensitiveDataLogging()
+);
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
@@ -55,6 +60,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddControllers().AddApplicationPart(typeof(ShoppingCartController).Assembly);
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -66,14 +73,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors(); 
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapControllers();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
-
 
 app.Run();

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VideoGameAppBackend.Data;
 
@@ -10,9 +11,11 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    partial class GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230630201329_CartStuff")]
+    partial class CartStuff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +50,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9a31ca15-c835-4e38-8f78-860262b93f8c",
+                            Id = "984dcc8a-0e9a-462b-9b71-f56ea3133349",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -138,8 +141,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d8ff74d4-144e-4eb2-a633-10bd3cb8428e",
-                            RoleId = "9a31ca15-c835-4e38-8f78-860262b93f8c"
+                            UserId = "9f4d4804-8922-40d7-b2d6-c245b987599f",
+                            RoleId = "984dcc8a-0e9a-462b-9b71-f56ea3133349"
                         });
                 });
 
@@ -171,20 +174,17 @@ namespace VideoGameBackend.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("City")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Country")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -194,12 +194,10 @@ namespace VideoGameBackend.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -225,15 +223,13 @@ namespace VideoGameBackend.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("PostalCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
                     b.Property<string>("State")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
@@ -256,10 +252,9 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d8ff74d4-144e-4eb2-a633-10bd3cb8428e",
+                            Id = "9f4d4804-8922-40d7-b2d6-c245b987599f",
                             AccessFailedCount = 0,
-                            Address = "",
-                            ConcurrencyStamp = "82ed1aa3-db85-4ac5-97e8-a941f457adc1",
+                            ConcurrencyStamp = "f34ebaa0-3dcf-4916-a45c-6507f7305305",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -267,18 +262,17 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB7pRWYjal8Yunvc869/7AUWBaJsD5F3k1gxJ9+bPNKANaPG/I89lJcZgTIrPb6TTQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFAQ8c+s80NBBbJFhnJPhF2Zu9kAVlE4ekssdlXM8OYSDTKSPiZIIsmcKk8x355v8g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ee9363e7-cf9b-442a-84b1-3730249aefae",
+                            SecurityStamp = "0be7a38e-889f-49e2-846b-5d77bd56ab72",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "56254bc6-43b0-4fa1-9ad6-8a74da5cab00",
+                            Id = "c0d7eb86-1b43-46d9-8047-11a5a4658708",
                             AccessFailedCount = 0,
-                            Address = "",
-                            ConcurrencyStamp = "66f0381c-65d6-43d0-a655-d20ef0bfc08f",
+                            ConcurrencyStamp = "28cd4ac3-96c8-4173-b287-b1e3622841d9",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -286,9 +280,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEALaGobBI0p2RslSDQj+mn4NtiJFrzRygaLWYNh7N1h5EuThTgP6t4lwM1E7YgeJVQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELdr0PhsbhcOqlhrtesEah4/KMsfeFjgsc4e8TFzDH2sh6CF1sqOz8dnVTsYuJfV4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e6d069a1-a694-4ba1-b7d5-7e151e701fbb",
+                            SecurityStamp = "66165607-0f7c-4729-bb4b-47a9e5b1980b",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -852,8 +846,7 @@ namespace VideoGameBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Carts");
                 });
@@ -1468,71 +1461,6 @@ namespace VideoGameBackend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Comment")
-                        .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)");
-
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Reviews");
-                });
-
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WishLists");
-                });
-
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishlistItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WishlistId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("WishlistId");
-
-                    b.ToTable("WishlistItems");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1624,7 +1552,7 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.OrderItem", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.Game", "Game")
-                        .WithMany("OrderItems")
+                        .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1662,9 +1590,8 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Payments.Cart", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "User")
-                        .WithOne("Cart")
-                        .HasForeignKey("VideoGameAppBackend.Models.Payments.Cart", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -1763,62 +1690,9 @@ namespace VideoGameBackend.Migrations
                         .HasForeignKey("GameId");
                 });
 
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.Review", b =>
-                {
-                    b.HasOne("VideoGameAppBackend.Models.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "User")
-                        .WithMany("Reviews")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("Game");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishList", b =>
-                {
-                    b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "User")
-                        .WithMany("WishLists")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishlistItem", b =>
-                {
-                    b.HasOne("VideoGameAppBackend.Models.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VideoGameAppBackend.Models.Product.WishList", "Wishlist")
-                        .WithMany("WishlistItems")
-                        .HasForeignKey("WishlistId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Game");
-
-                    b.Navigation("Wishlist");
-                });
-
             modelBuilder.Entity("VideoGameAppBackend.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("Cart");
-
                     b.Navigation("Orders");
-
-                    b.Navigation("Reviews");
-
-                    b.Navigation("WishLists");
                 });
 
             modelBuilder.Entity("VideoGameAppBackend.Models.Game", b =>
@@ -1830,8 +1704,6 @@ namespace VideoGameBackend.Migrations
                     b.Navigation("GameImages");
 
                     b.Navigation("GamePlatforms");
-
-                    b.Navigation("OrderItems");
 
                     b.Navigation("SupportedLanguages");
                 });
@@ -1868,11 +1740,6 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Product.Platform", b =>
                 {
                     b.Navigation("GamePlatforms");
-                });
-
-            modelBuilder.Entity("VideoGameAppBackend.Models.Product.WishList", b =>
-                {
-                    b.Navigation("WishlistItems");
                 });
 #pragma warning restore 612, 618
         }

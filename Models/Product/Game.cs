@@ -86,6 +86,9 @@ namespace VideoGameAppBackend.Models
 
         [Display(Name = "ESRB Content Descriptions")]
         public string? ESRBContentDescriptions { get; set; }
+
+        public virtual ICollection<OrderItem>? OrderItems { get; set; }
+
     }
 }
 

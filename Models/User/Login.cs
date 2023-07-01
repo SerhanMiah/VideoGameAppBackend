@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VideoGameAppBackend.Models
 {
-    public class Login
+    public class LoginViewModel
     {
         [Required]
         [EmailAddress]

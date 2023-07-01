@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VideoGameAppBackend.Data;
 using VideoGameAppBackend.Models;
+using VideoGameAppBackend.Models.Payments;
 
 namespace VideoGameAppBackend.Controllers
 {
@@ -50,5 +51,24 @@ namespace VideoGameAppBackend.Controllers
 
             return game;
         }
+
+
+        // Search for games
+        [HttpGet("search")]
+
+        public ActionResult<IEnumerable<Game>> GetGameSearch(string title)
+        {
+            var games = _dbContext.Games
+                .Where(g => g.Title.Contains(title))
+                .ToList();
+
+            if (!games.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(games);
+        }
+
     }
 }

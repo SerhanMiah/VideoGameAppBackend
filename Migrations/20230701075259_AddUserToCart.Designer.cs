@@ -11,8 +11,8 @@ using VideoGameAppBackend.Data;
 namespace VideoGameBackend.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20230628122336_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230701075259_AddUserToCart")]
+    partial class AddUserToCart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "08b99dfa-2203-40cb-96b0-07060ae47710",
+                            Id = "747bb61a-4a4a-4ca3-b115-fbfee22df68e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -141,8 +141,8 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "08fc19ac-260b-43f0-96ce-16f57bf619dc",
-                            RoleId = "08b99dfa-2203-40cb-96b0-07060ae47710"
+                            UserId = "57721c51-204a-4760-a610-0531f7581980",
+                            RoleId = "747bb61a-4a4a-4ca3-b115-fbfee22df68e"
                         });
                 });
 
@@ -252,9 +252,9 @@ namespace VideoGameBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "08fc19ac-260b-43f0-96ce-16f57bf619dc",
+                            Id = "57721c51-204a-4760-a610-0531f7581980",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3ab21a1-241c-41e2-ba6a-914a9973a01e",
+                            ConcurrencyStamp = "9f2a2b5a-73a3-4fb5-ab3d-764d9b342c6e",
                             Email = "admin@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -262,17 +262,17 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMcVRj08SFM9NlmcgtjVj1HfJIQtT8jfuqEwDY6nyc+N/aVFxz2mQ3uaj9lwdS2fVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENmlJg0fcN1vBOrULOx8Q4w6sDCw1vyJrEOIWHS8pRLZUxwR/LGfEnpa5ukl/veVgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "50945a48-ac62-4c52-b35b-b5a420015000",
+                            SecurityStamp = "5e0240c0-187d-42fe-ae3f-d1c6596ae75c",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "46869d21-9511-43d8-9ad8-839ac2cb5828",
+                            Id = "296c0018-6fd0-4097-a13b-45e920acb7df",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2b45ebf-e9f0-441e-a1f2-84d402026dcc",
+                            ConcurrencyStamp = "f2fcd34d-dd65-4bab-92ee-3e0abdfdcd7c",
                             Email = "user@videogameshop.com",
                             EmailConfirmed = true,
                             FirstName = "Regular",
@@ -280,9 +280,9 @@ namespace VideoGameBackend.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@VIDEOGAMESHOP.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG8d7qggzmrk2gld4ndFLH/o6OWeohfVFT0ulP2Ot11W1LH2JufSP70NTX4pfJU+sg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBChySNlIqRc5aYlT/195CTmJUvlc/Cjf34xFWERt8dS+q4PZx+KSISfHMuarYlpgA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "376b6da3-944a-4afa-9175-f50553d77b40",
+                            SecurityStamp = "ef63b318-a488-4595-8973-80de66e330fc",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -846,7 +846,8 @@ namespace VideoGameBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -1552,7 +1553,7 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.OrderItem", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.Game", "Game")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1590,8 +1591,9 @@ namespace VideoGameBackend.Migrations
             modelBuilder.Entity("VideoGameAppBackend.Models.Payments.Cart", b =>
                 {
                     b.HasOne("VideoGameAppBackend.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                        .WithOne("Cart")
+                        .HasForeignKey("VideoGameAppBackend.Models.Payments.Cart", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
                 });
@@ -1692,6 +1694,9 @@ namespace VideoGameBackend.Migrations
 
             modelBuilder.Entity("VideoGameAppBackend.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Cart")
+                        .IsRequired();
+
                     b.Navigation("Orders");
                 });
 
@@ -1704,6 +1709,8 @@ namespace VideoGameBackend.Migrations
                     b.Navigation("GameImages");
 
                     b.Navigation("GamePlatforms");
+
+                    b.Navigation("OrderItems");
 
                     b.Navigation("SupportedLanguages");
                 });
